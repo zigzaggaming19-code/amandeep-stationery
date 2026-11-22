@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f5ef">
+<title>Amandeep Stationery And Gift</title>
+<style>
+:root{--ink:#202820;--muted:#6c756c;--paper:#fbfaf6;--outer:#e9e8e0;--card:#fff;--green:#315b45;--green-dark:#244735;--line:#e7e6de;--gold:#c69b55;--soft:#eef2eb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+.site-frame{width:100%;max-width:none;margin:0;min-height:100vh;background:var(--paper);box-shadow:none;overflow:hidden}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 28px}.top.wrap,.section.wrap,footer .wrap{padding-left:28px;padding-right:28px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 0}
+.brand{font-family:Georgia,serif;font-size:20px;font-weight:bold;letter-spacing:.7px;color:var(--ink)}
+.brand small{display:block;font:10px Arial;letter-spacing:2.2px;color:var(--muted);margin-top:5px}
+.cartbtn,.btn{border:0;border-radius:999px;padding:12px 19px;background:var(--green);color:white;font-weight:bold;cursor:pointer;transition:background .2s,transform .2s}
+.cartbtn:hover,.btn:hover{background:var(--green-dark);transform:translateY(-1px)}
+.hero{margin:18px 18px 0;padding:58px 0 54px;background:linear-gradient(115deg,#edf2e9,#e6ede3);border:1px solid #e0e8dd;border-radius:18px}
+.eyebrow{color:var(--green);font-size:11px;letter-spacing:2px;font-weight:bold}
+.hero h1{font:clamp(34px,6vw,58px) Georgia,serif;line-height:1.08;max-width:650px;margin:14px 0 13px;letter-spacing:-.6px}
+.hero p{color:#59645a;max-width:520px;line-height:1.7;margin:0 0 22px;font-size:15px}
+.section{padding:42px 0 38px}
+.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.section h2{font:30px Georgia,serif;margin:0 0 8px;letter-spacing:-.3px}
+.muted{color:var(--muted);font-size:13px}
+.filters{display:flex;gap:9px;overflow:auto;padding:17px 0 20px;scrollbar-width:thin}
+.filter{white-space:nowrap;border:1px solid #dedfd6;background:#fff;border-radius:30px;padding:10px 15px;cursor:pointer;color:#465247;font-size:13px;transition:all .18s}
+.filter:hover{border-color:var(--green);color:var(--green)}
+.filter.active{background:var(--green);color:#fff;border-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.product{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.product:hover{transform:translateY(-3px);box-shadow:0 10px 25px #233b2b12}
+.photo{height:155px;background:#f1f1eb;display:flex;align-items:center;justify-content:center;font-size:48px;color:#aaa;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+.pbody{padding:14px}
+.pbody h3{font-size:15px;margin:0 0 7px;line-height:1.35}
+.pbody p{font-size:12px;color:var(--muted);min-height:30px;margin:0 0 10px;line-height:1.5}
+.price{font-weight:bold;color:var(--green);font-size:17px}
+.add{width:100%;margin-top:12px;border:1px solid var(--green);background:#fff;color:var(--green);border-radius:10px;padding:10px;font-weight:bold;cursor:pointer;transition:all .2s}
+.add:hover{background:var(--green);color:#fff}.add:disabled{opacity:.45;cursor:not-allowed}
+.empty{padding:28px;text-align:center;background:white;border:1px solid var(--line);border-radius:14px;color:var(--muted)}
+footer{padding:34px 0;background:#202a23;color:#fff;margin:10px 18px 18px;border-radius:16px}
+footer a{color:#fff}
+.cartpanel{position:fixed;inset:0;background:#0008;z-index:10;display:none;justify-content:flex-end}
+.cartpanel.open{display:flex}
+.drawer{background:#fff;width:min(430px,100%);height:100%;padding:22px;overflow:auto;box-shadow:-10px 0 35px #0002}
+.drawerhead{display:flex;justify-content:space-between;align-items:center}.drawerhead h2{font-family:Georgia,serif}
+.close{border:0;background:#eee;border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer}
+.cartrow{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:13px 0;font-size:14px}
+.qty button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 9px;cursor:pointer}
+.field{width:100%;padding:12px;border:1px solid #d9d8d0;border-radius:9px;margin:6px 0 12px;font:inherit}
+.field:focus{outline:2px solid #315b4530;border-color:var(--green)}
+.checkout label{font-size:12px;color:var(--muted)}.checkout .btn{width:100%;margin-top:8px}
+.notice{font-size:12px;color:var(--muted);line-height:1.5}
+.status{padding:13px 15px;border-radius:10px;background:#fff8e9;color:#765a22;font-size:13px;margin:16px 0}
+@media(max-width:649px){.top.wrap,.section.wrap,footer .wrap{padding-left:20px;padding-right:20px}}@media(min-width:650px){.hero{margin:22px 22px 0;padding:76px 0 68px}.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.photo{height:185px}footer{margin:12px 22px 22px}}
+@media(max-width:420px){.wrap{padding:0 20px}.top{padding:15px 0}.brand{font-size:18px}.hero{margin:16px 16px 0;padding:39px 0 36px;border-radius:14px}.hero h1{font-size:34px}.hero p{font-size:14px}.section{padding:32px 0}.section h2{font-size:26px}.grid{gap:11px}.photo{height:128px}.pbody{padding:11px}.pbody h3{font-size:14px}.add{font-size:12px;padding:9px}footer{margin:12px 16px 16px;padding:28px 0}}
+</style>
+</head>
+<body>
+<div class="site-frame">
+<header><div class="wrap top"><div class="brand">AMANDEEP<small>STATIONERY AND GIFT</small></div><button class="cartbtn" onclick="openCart()">Cart (<span id="cartCount">0</span>)</button></div></header>
+<section class="hero"><div class="wrap"><div class="eyebrow">EVERYDAY ESSENTIALS · THOUGHTFUL GIFTS</div><h1>Everything you need, beautifully gathered.</h1><p>Shop stationery, school essentials, office supplies and gifts from Amandeep Stationery And Gift.</p><button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Explore products</button></div></section>
+<main class="wrap section" id="shop"><div class="sectionhead"><div><h2>Shop our collection</h2><div class="muted">Fresh picks for school, work and gifting.</div></div></div><div id="status" class="status">Connecting to the store…</div><div class="filters" id="filters"></div><div class="grid" id="products"></div></main>
+<footer><div class="wrap"><div class="brand">AMANDEEP<small style="color:#cbd3ca">STATIONERY AND GIFT</small></div><p class="muted" style="color:#cbd3ca">For orders and enquiries, contact us on WhatsApp.</p><a href="https://wa.me/919873316999" target="_blank">Chat on WhatsApp</a> · <a href="admin.html">Admin</a></div></footer>
+</div>
+<div class="cartpanel" id="cartPanel" onclick="if(event.target===this)closeCart()"><div class="drawer"><div class="drawerhead"><h2>Your cart</h2><button class="close" onclick="closeCart()">×</button></div><div id="cartItems"></div><h3 id="total">Total: ₹0</h3><div class="checkout"><label>Your name</label><input class="field" id="custName" placeholder="Full name"><label>Mobile number</label><input class="field" id="custPhone" inputmode="tel" placeholder="10-digit mobile number"><label>Delivery address</label><textarea class="field" id="custAddress" rows="3" placeholder="House, street, area, city, PIN code"></textarea><label>Payment method</label><select class="field" id="payment"><option>Cash on Delivery</option><option>UPI (confirm details on WhatsApp)</option></select><button class="btn" onclick="sendOrder()">Place order on WhatsApp</button><p class="notice">Your order will be sent to our WhatsApp for confirmation. Online payment is not collected on this website.</p></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL='https://hierarwthxqddvcvkrse.supabase.co';
+const SUPABASE_KEY='sb_publishable_k-sTZu0tqO97SUdRdnn_-w_mXNCpGpX';
+const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const WA_NUMBER='919873316999';let products=[],cart={},category='All';
+const money=n=>'₹'+Number(n||0).toLocaleString('en-IN',{maximumFractionDigits:2});
+async function loadProducts(){const status=document.getElementById('status');status.textContent='Loading products…';const {data,error}=await db.from('products').select('id,name,category,price,description,image_url,stock,active').eq('active',true).order('created_at',{ascending:false});if(error){status.textContent='Could not load products: '+error.message;return}products=data||[];status.style.display=products.length?'none':'block';if(!products.length)status.textContent='Our catalogue is being prepared. Please check back soon or contact us on WhatsApp.';renderFilters();renderProducts()}
+function renderFilters(){let cats=['All',...new Set(products.map(p=>p.category).filter(Boolean))];document.getElementById('filters').innerHTML=cats.map(c=>`<button class="filter ${c===category?'active':''}" onclick="setCategory(${JSON.stringify(c)})">${esc(c)}</button>`).join('')}
+function setCategory(c){category=c;renderFilters();renderProducts()}
+function renderProducts(){let list=category==='All'?products:products.filter(p=>p.category===category);document.getElementById('products').innerHTML=list.length?list.map(p=>`<article class="product"><div class="photo">${p.image_url?`<img src="${escAttr(p.image_url)}" alt="${escAttr(p.name)}" onerror="this.parentElement.textContent='📚'">`:'📚'}</div><div class="pbody"><h3>${esc(p.name)}</h3><p>${esc(p.description||p.category||'')}</p><div class="price">${money(p.price)}</div><button class="add" ${Number(p.stock)<=0?'disabled':''} onclick="addToCart('${p.id}')">${Number(p.stock)<=0?'Out of stock':'Add to cart'}</button></div></article>`).join(''):'<div class="empty" style="grid-column:1/-1">No products in this category yet.</div>'}
+function addToCart(id){let p=products.find(x=>x.id===id);if(!p)return;cart[id]=(cart[id]||0)+1;if(cart[id]>Number(p.stock)){cart[id]=Number(p.stock);alert('Available stock: '+p.stock)}updateCart()}
+function updateCart(){let count=Object.values(cart).reduce((a,b)=>a+b,0);document.getElementById('cartCount').textContent=count;let rows=Object.entries(cart).filter(([id,q])=>q>0).map(([id,q])=>{let p=products.find(x=>x.id===id);return p?{p,q}:null}).filter(Boolean);document.getElementById('cartItems').innerHTML=rows.length?rows.map(({p,q})=>`<div class="cartrow"><div><b>${esc(p.name)}</b><br>${money(p.price)} × ${q}</div><div class="qty"><button onclick="changeQty('${p.id}',-1)">−</button> ${q} <button onclick="changeQty('${p.id}',1)">+</button></div></div>`).join(''):'<p class="muted">Your cart is empty.</p>';let total=rows.reduce((s,{p,q})=>s+Number(p.price)*q,0);document.getElementById('total').textContent='Total: '+money(total)}
+function changeQty(id,d){let p=products.find(x=>x.id===id);cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];else if(cart[id]>Number(p.stock))cart[id]=Number(p.stock);updateCart()}
+function openCart(){document.getElementById('cartPanel').classList.add('open');updateCart()}function closeCart(){document.getElementById('cartPanel').classList.remove('open')}
+function sendOrder(){let rows=Object.entries(cart).filter(([id,q])=>q>0).map(([id,q])=>({p:products.find(x=>x.id===id),q})).filter(x=>x.p);if(!rows.length)return alert('Your cart is empty.');let name=document.getElementById('custName').value.trim(),phone=document.getElementById('custPhone').value.trim(),address=document.getElementById('custAddress').value.trim();if(!name||!phone||!address)return alert('Please enter your name, mobile number and delivery address.');let total=rows.reduce((s,x)=>s+Number(x.p.price)*x.q,0);let msg=`Hello Amandeep Stationery And Gift, I would like to place an order:\n\n${rows.map(x=>`${x.p.name} × ${x.q} — ${money(x.p.price*x.q)}`).join('\n')}\n\nTotal: ${money(total)}\nName: ${name}\nMobile: ${phone}\nAddress: ${address}\nPayment: ${document.getElementById('payment').value}\n\nPlease confirm availability and delivery.`;window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank');}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function escAttr(s){return esc(s)}
+loadProducts();
+</script>
+</body></html>
